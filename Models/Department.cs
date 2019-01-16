@@ -9,5 +9,6 @@ namespace NileSchool.API.Models
         public int HeadOfDepartmentId { get; set; }
         public User User { get; set; }
         public DateTime Created { get; set; }
-        public DateTime LastUpdated { get; set; }    }
+        public DateTime LastUpdated { get; set; }    
+    }
 }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using NileSchool.API.Models;
 
-namespace NileSchool.API.Data
+namespace NileSchool.API.Data.Interfaces
 {
     public interface IClassRepository
     {

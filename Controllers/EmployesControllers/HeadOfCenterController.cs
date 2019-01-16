@@ -4,10 +4,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NileSchool.API.Data;
+using NileSchool.API.Data.Interfaces;
 using NileSchool.API.Dtos;
 using NileSchool.API.Models;
 
-namespace NileSchool.API.Controllers
+namespace NileSchool.API.Controllers.EmployesControllers
 {
     [Authorize]
     [ApiController]

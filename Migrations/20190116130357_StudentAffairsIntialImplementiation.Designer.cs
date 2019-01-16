@@ -9,7 +9,7 @@ using NileSchool.API.Data;
 namespace NileSchool.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190114155802_StudentAffairsIntialImplementiation")]
+    [Migration("20190116130357_StudentAffairsIntialImplementiation")]
     partial class StudentAffairsIntialImplementiation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

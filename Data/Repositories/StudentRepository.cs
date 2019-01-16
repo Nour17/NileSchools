@@ -2,9 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using NileSchool.API.Data.Interfaces;
 using NileSchool.API.Models;
 
-namespace NileSchool.API.Data
+namespace NileSchool.API.Data.Repositories
 {
     public class StudentRepository : IStudentRepository
     {
@@ -23,9 +24,9 @@ namespace NileSchool.API.Data
             return newStudent;
         }
 
-        public async Task<Student> GetStudent(int id)
+        public Student GetStudent(int id)
         {
-            var student = await _context.Students.FirstOrDefaultAsync(x => x.Id == id);
+            var student =  _context.Students.FirstOrDefault(x => x.Id == id);
 
             return student;
         }
@@ -39,6 +40,16 @@ namespace NileSchool.API.Data
             return filteredStudents;
         }
 
+        public int GetNumberOfStudentsInClass(int classId)
+        {
+            var studentsInClass = _context.Students.ToList();
+
+            var filteredStudents = studentsInClass.Where(x => x.ClassId == classId);
+            int studentNumber = filteredStudents.Count();
+
+            return studentNumber;
+        }
+
         public async Task<IEnumerable<Student>> GetStudentsInGrade(int gradeId)
         {
             var students = await _context.Students.ToListAsync();
@@ -46,6 +57,15 @@ namespace NileSchool.API.Data
             var filteredStudents = students.Where(x => x.Class.GradeId == gradeId);
 
             return filteredStudents;
+        }
+
+        public Student AddStudentToClass(Student student, int classId)
+        {
+            student.ClassId = classId;
+            _context.Students.Update(student);
+            _context.SaveChanges();
+
+            return student;
         }
     }
 }

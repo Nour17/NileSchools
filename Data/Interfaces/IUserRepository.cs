@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using NileSchool.API.Models;
 
-namespace NileSchool.API.Data
+namespace NileSchool.API.Data.Interfaces
 {
-    public interface IAuthRepository
+    public interface IUserRepository
     {
         Task<User> MakeUser(User user, string password);
 

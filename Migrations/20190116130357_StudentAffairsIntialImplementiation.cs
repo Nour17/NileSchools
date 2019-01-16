@@ -93,19 +93,13 @@ namespace NileSchool.API.Migrations
                     Address = table.Column<string>(nullable: true),
                     GuardianMail = table.Column<string>(nullable: true),
                     GuardianPhone = table.Column<string>(nullable: true),
-                    ClassId = table.Column<int>(nullable: false),
+                    ClassId = table.Column<int>(nullable: true),
                     Created = table.Column<DateTime>(nullable: false),
                     LastUpdated = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Students", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Students_Classes_ClassId",
-                        column: x => x.ClassId,
-                        principalTable: "Classes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

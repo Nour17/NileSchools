@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using NileSchool.API.Data.Interfaces;
 using NileSchool.API.Models;
 
-namespace NileSchool.API.Data
+namespace NileSchool.API.Data.Repositories
 {
     public class AcademicYearRepository : IAcademicYearRepository
     {
